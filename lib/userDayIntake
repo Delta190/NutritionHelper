@@ -1,0 +1,33 @@
+import 'package:hive/hive.dart';
+
+part 'user_day_intake.g.dart';
+
+@HiveType(typeId: 2)
+class UserDayIntake extends HiveObject {
+  @HiveField(0)
+  String userID;
+
+  @HiveField(1)
+  DateTime date;
+
+  @HiveField(2)
+  double calories;
+
+  @HiveField(3)
+  double fat;
+
+  @HiveField(4)
+  double saturates;
+
+  @HiveField(5)
+  double carbohydrates;
+
+  @HiveField(6)
+  double fibre;
+
+  @HiveField(7)
+  double protein;
+
+  @HiveField(8)
+  double salt;
+}
