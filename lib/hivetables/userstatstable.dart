@@ -21,4 +21,7 @@ class UserStats {
 
   @HiveField(5)
   late List<String> dietaryPreferences;
+
+  @HiveField(6)
+  late List<String> favourites;
 }

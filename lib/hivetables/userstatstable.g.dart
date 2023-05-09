@@ -22,13 +22,14 @@ class UserStatsAdapter extends TypeAdapter<UserStats> {
       ..height = fields[2] as double
       ..weight = fields[3] as double
       ..allergies = (fields[4] as List).cast<String>()
-      ..dietaryPreferences = (fields[5] as List).cast<String>();
+      ..dietaryPreferences = (fields[5] as List).cast<String>()
+      ..favourites = (fields[6] as List).cast<String>();
   }
 
   @override
   void write(BinaryWriter writer, UserStats obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.age)
       ..writeByte(1)
@@ -40,7 +41,9 @@ class UserStatsAdapter extends TypeAdapter<UserStats> {
       ..writeByte(4)
       ..write(obj.allergies)
       ..writeByte(5)
-      ..write(obj.dietaryPreferences);
+      ..write(obj.dietaryPreferences)
+      ..writeByte(6)
+      ..write(obj.favourites);
   }
 
   @override

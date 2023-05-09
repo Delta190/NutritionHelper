@@ -98,7 +98,8 @@ Future<void> loadUserStats() async {
       ..height = double.tryParse(fields[2]) ?? 0.0
       ..weight = double.tryParse(fields[3]) ?? 0.0
       ..allergies = fields[4].split('|')
-      ..dietaryPreferences = fields[5].split('|');
+      ..dietaryPreferences = fields[5].split('|')
+      ..favourites = fields[6].split('|');
 
     userStatsBox.add(userStats); // Add the UserStats to the Hive table
   }
