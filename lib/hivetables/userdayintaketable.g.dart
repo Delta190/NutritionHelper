@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'userdayintake.dart';
+part of 'userdayintaketable.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator

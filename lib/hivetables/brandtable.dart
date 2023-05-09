@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-part 'brand.g.dart';
+part 'brandtable.g.dart';
 
 @HiveType(typeId: 1)
 class Brand extends HiveObject {
