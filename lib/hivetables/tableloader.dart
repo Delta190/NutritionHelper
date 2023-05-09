@@ -26,18 +26,19 @@ Future<void> loadProducts() async {
       ..description = fields[2]
       ..brand = fields[3]
       ..weight = double.tryParse(fields[4]) ?? 0.0
-      ..price = double.tryParse(fields[5]) ?? 0.0
-      ..tags = fields[6].split('|')
-      ..energyKJ = double.tryParse(fields[7]) ?? 0.0
-      ..energyKcal = double.tryParse(fields[8]) ?? 0.0
-      ..fat = double.tryParse(fields[9]) ?? 0.0
-      ..saturates = double.tryParse(fields[10]) ?? 0.0
-      ..carbohydrate = double.tryParse(fields[11]) ?? 0.0
-      ..sugars = double.tryParse(fields[12]) ?? 0.0
-      ..fibre = double.tryParse(fields[13]) ?? 0.0
-      ..protein = double.tryParse(fields[14]) ?? 0.0
-      ..salt = double.tryParse(fields[15]) ?? 0.0
-      ..ingredients = fields[16].split('|');
+      ..weightUnit = fields[5]
+      ..price = double.tryParse(fields[6]) ?? 0.0
+      ..tags = fields[7].split('|')
+      ..energyKJ = double.tryParse(fields[8]) ?? 0.0
+      ..energyKcal = double.tryParse(fields[9]) ?? 0.0
+      ..fat = double.tryParse(fields[10]) ?? 0.0
+      ..saturates = double.tryParse(fields[11]) ?? 0.0
+      ..carbohydrate = double.tryParse(fields[12]) ?? 0.0
+      ..sugars = double.tryParse(fields[13]) ?? 0.0
+      ..fibre = double.tryParse(fields[14]) ?? 0.0
+      ..protein = double.tryParse(fields[15]) ?? 0.0
+      ..salt = double.tryParse(fields[16]) ?? 0.0
+      ..ingredients = fields[17].split('|');
 
     productBox.add(product); // Add the Product to the Hive table
   }
@@ -49,7 +50,7 @@ Future<void> loadUserDayIntake() async {
   final userDayIntakeBox = await Hive.openBox<UserDayIntake>('userDayIntake');
 
   // Replace 'user_day_intake.csv' with the name of your CSV file
-  final file = File('user_day_intake.csv');
+  final file = File('userdayintake.csv');
 
   final contents = await file.readAsString(); // Read the contents of the file
 
@@ -78,10 +79,10 @@ Future<void> loadUserDayIntake() async {
 }
 
 Future<void> loadUserStats() async {
-  final userStatsBox = await Hive.openBox<UserStats>('user_stats');
+  final userStatsBox = await Hive.openBox<UserStats>('userstats');
 
   // Replace 'user_stats.csv' with the name of your CSV file
-  final file = File('user_stats.csv');
+  final file = File('userstats.csv');
 
   final contents = await file.readAsString(); // Read the contents of the file
 

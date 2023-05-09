@@ -22,24 +22,25 @@ class ProductAdapter extends TypeAdapter<Product> {
       ..description = fields[2] as String
       ..brand = fields[3] as String
       ..weight = fields[4] as double
-      ..price = fields[5] as double
-      ..tags = (fields[6] as List).cast<String>()
-      ..energyKJ = fields[7] as double
-      ..energyKcal = fields[8] as double
-      ..fat = fields[9] as double
-      ..saturates = fields[10] as double
-      ..carbohydrate = fields[11] as double
-      ..sugars = fields[12] as double
-      ..fibre = fields[13] as double
-      ..protein = fields[14] as double
-      ..salt = fields[15] as double
-      ..ingredients = (fields[16] as List).cast<String>();
+      ..weightUnit = fields[5] as String
+      ..price = fields[6] as double
+      ..tags = (fields[7] as List).cast<String>()
+      ..energyKJ = fields[8] as double
+      ..energyKcal = fields[9] as double
+      ..fat = fields[10] as double
+      ..saturates = fields[11] as double
+      ..carbohydrate = fields[12] as double
+      ..sugars = fields[13] as double
+      ..fibre = fields[14] as double
+      ..protein = fields[15] as double
+      ..salt = fields[16] as double
+      ..ingredients = (fields[17] as List).cast<String>();
   }
 
   @override
   void write(BinaryWriter writer, Product obj) {
     writer
-      ..writeByte(17)
+      ..writeByte(18)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
@@ -51,28 +52,30 @@ class ProductAdapter extends TypeAdapter<Product> {
       ..writeByte(4)
       ..write(obj.weight)
       ..writeByte(5)
-      ..write(obj.price)
+      ..write(obj.weightUnit)
       ..writeByte(6)
-      ..write(obj.tags)
+      ..write(obj.price)
       ..writeByte(7)
-      ..write(obj.energyKJ)
+      ..write(obj.tags)
       ..writeByte(8)
-      ..write(obj.energyKcal)
+      ..write(obj.energyKJ)
       ..writeByte(9)
-      ..write(obj.fat)
+      ..write(obj.energyKcal)
       ..writeByte(10)
-      ..write(obj.saturates)
+      ..write(obj.fat)
       ..writeByte(11)
-      ..write(obj.carbohydrate)
+      ..write(obj.saturates)
       ..writeByte(12)
-      ..write(obj.sugars)
+      ..write(obj.carbohydrate)
       ..writeByte(13)
-      ..write(obj.fibre)
+      ..write(obj.sugars)
       ..writeByte(14)
-      ..write(obj.protein)
+      ..write(obj.fibre)
       ..writeByte(15)
-      ..write(obj.salt)
+      ..write(obj.protein)
       ..writeByte(16)
+      ..write(obj.salt)
+      ..writeByte(17)
       ..write(obj.ingredients);
   }
 

@@ -20,38 +20,41 @@ class Product extends HiveObject {
   late double weight;
 
   @HiveField(5)
-  late double price;
+  late String weightUnit;
 
   @HiveField(6)
-  late List<String> tags;
+  late double price;
 
   @HiveField(7)
-  late double energyKJ;
+  late List<String> tags;
 
   @HiveField(8)
-  late double energyKcal;
+  late double energyKJ;
 
   @HiveField(9)
-  late double fat;
+  late double energyKcal;
 
   @HiveField(10)
-  late double saturates;
+  late double fat;
 
   @HiveField(11)
-  late double carbohydrate;
+  late double saturates;
 
   @HiveField(12)
-  late double sugars;
+  late double carbohydrate;
 
   @HiveField(13)
-  late double fibre;
+  late double sugars;
 
   @HiveField(14)
-  late double protein;
+  late double fibre;
 
   @HiveField(15)
-  late double salt;
+  late double protein;
 
   @HiveField(16)
+  late double salt;
+
+  @HiveField(17)
   late List<String> ingredients;
 }
