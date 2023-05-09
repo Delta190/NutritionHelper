@@ -9,17 +9,15 @@ import 'package:nutritionhelperuimodule/hivetables/producttable.dart';
 Future<void> loadProducts() async {
   final productBox = await Hive.openBox<Product>('product');
 
-  // Replace 'products.csv' with the name of your CSV file
   final file = File('products.csv');
 
-  final contents = await file.readAsString(); // Read the contents of the file
+  final contents = await file.readAsString(); // Read the contents
 
-  final lines = contents.split('\n'); // Split the contents into lines
+  final lines = contents.split('\n'); // Split
 
   for (var i = 1; i < lines.length; i++) {
     final fields = lines[i].split(','); // Split the line by commas
 
-    // Create a new Product object and set its fields
     final product = Product()
       ..name = fields[0]
       ..type = fields[1]
@@ -40,26 +38,24 @@ Future<void> loadProducts() async {
       ..salt = double.tryParse(fields[16]) ?? 0.0
       ..ingredients = fields[17].split('|');
 
-    productBox.add(product); // Add the Product to the Hive table
+    productBox.add(product);
   }
 
-  await productBox.close(); // Close the Hive box
+  await productBox.close();
 }
 
 Future<void> loadUserDayIntake() async {
   final userDayIntakeBox = await Hive.openBox<UserDayIntake>('userDayIntake');
 
-  // Replace 'user_day_intake.csv' with the name of your CSV file
   final file = File('userdayintake.csv');
 
-  final contents = await file.readAsString(); // Read the contents of the file
+  final contents = await file.readAsString();
 
-  final lines = contents.split('\n'); // Split the contents into lines
+  final lines = contents.split('\n');
 
   for (var i = 1; i < lines.length; i++) {
-    final fields = lines[i].split(','); // Split the line by commas
+    final fields = lines[i].split(',');
 
-    // Create a new UserDayIntake object and set its fields
     final userDayIntake = UserDayIntake()
       ..userID = fields[0]
       ..date = DateTime.parse(fields[1])
@@ -71,27 +67,24 @@ Future<void> loadUserDayIntake() async {
       ..protein = double.tryParse(fields[7]) ?? 0.0
       ..salt = double.tryParse(fields[8]) ?? 0.0;
 
-    userDayIntakeBox
-        .add(userDayIntake); // Add the UserDayIntake to the Hive table
+    userDayIntakeBox.add(userDayIntake);
   }
 
-  await userDayIntakeBox.close(); // Close the Hive boxd
+  await userDayIntakeBox.close();
 }
 
 Future<void> loadUserStats() async {
   final userStatsBox = await Hive.openBox<UserStats>('userstats');
 
-  // Replace 'user_stats.csv' with the name of your CSV file
   final file = File('userstats.csv');
 
-  final contents = await file.readAsString(); // Read the contents of the file
+  final contents = await file.readAsString();
 
-  final lines = contents.split('\n'); // Split the contents into lines
+  final lines = contents.split('\n');
 
   for (var i = 1; i < lines.length; i++) {
-    final fields = lines[i].split(','); // Split the line by commas
+    final fields = lines[i].split(',');
 
-    // Create a new UserStats object and set its fields
     final userStats = UserStats()
       ..age = int.tryParse(fields[0]) ?? 0
       ..gender = fields[1]
@@ -101,33 +94,31 @@ Future<void> loadUserStats() async {
       ..dietaryPreferences = fields[5].split('|')
       ..favourites = fields[6].split('|');
 
-    userStatsBox.add(userStats); // Add the UserStats to the Hive table
+    userStatsBox.add(userStats);
   }
 
-  await userStatsBox.close(); // Close the Hive box
+  await userStatsBox.close();
 }
 
 Future<void> loadBrands() async {
   final brandBox = await Hive.openBox<Brand>('brand');
 
-  // Replace 'brands.csv' with the name of your CSV file
   final file = File('brands.csv');
 
-  final contents = await file.readAsString(); // Read the contents of the file
+  final contents = await file.readAsString();
 
-  final lines = contents.split('\n'); // Split the contents into lines
+  final lines = contents.split('\n');
 
   for (var i = 1; i < lines.length; i++) {
-    final fields = lines[i].split(','); // Split the line by commas
+    final fields = lines[i].split(',');
 
-    // Create a new Brand object and set its fields
     final brand = Brand()
       ..name = fields[0]
       ..description = fields[1]
       ..logoLink = fields[2];
 
-    brandBox.add(brand); // Add the Brand to the Hive table
+    brandBox.add(brand);
   }
 
-  await brandBox.close(); // Close the Hive box
+  await brandBox.close();
 }
