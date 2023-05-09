@@ -163,7 +163,7 @@ class _NutritionLogState extends State<NutritionLog> {
               width: MediaQuery.of(context).size.width,
               height: 100,
               decoration: BoxDecoration(
-                color: Color(0x1fffffff),
+                color: Color.fromARGB(255, 255, 255, 255),
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.circular(25.0),
               ),

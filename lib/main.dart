@@ -3,6 +3,7 @@ import 'package:hive/hive.dart';
 import 'package:nutritionhelperuimodule/screens/account.dart';
 import 'package:nutritionhelperuimodule/screens/favourites.dart';
 import 'package:nutritionhelperuimodule/screens/home.dart';
+import 'package:nutritionhelperuimodule/screens/login.dart';
 import 'package:nutritionhelperuimodule/screens/nutritionlog.dart';
 
 void main() {
@@ -47,7 +48,7 @@ class _MyAppState extends State<MyApp> {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
