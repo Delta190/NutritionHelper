@@ -1,10 +1,15 @@
 Tesco Strawberries,fruit,Fresh strawberries,Tesco,400,g,1.50,fruit|fresh|strawberries,109,26,0.3,0.1,4.6,4.6,2.0,0.6,0.01,Strawberries
 Tesco Red Apples,fruit,Fresh apples,Tesco,650,g,1.20,fruit|fresh|apples,237,56,0.2,0.0,13.7,13.7,1.7,0.3,0.0,Apples
-Tesco 100% Pure Orange Juice,juice,Orange juice,Tesco,1,L,1.80,juice|orange|100%,187,45,0.2,0.0,10.1,10.1,0.5,0.8,0.0,Orange juice
+Tesco 100% Pure Orange Juice,juice,Orange juice,Tesco,1,l,1.80,juice|orange|100%,187,45,0.2,0.0,10.1,10.1,0.5,0.8,0.0,Orange juice
 Tesco Beef Mince,meat,Lean beef mince,Tesco,500,g,4.50,meat|beef|mince,774,185,12.3,5.4,0.0,0.0,0.0,18.6,0.23,Beef mince
 Tesco British Chicken Breast Fillets,meat,Chicken|fillets,Tesco,550,5.50,meat|chicken|fillets,485,115,1.5,0.5,0.1,0.1,0.0,24.5,0.2,Chicken breast|salt|water
 Tesco Wholemeal Bread,bread,Wholemeal bread,Tesco,800,g,0.85,bread|wholemeal,1008,240,2.6,0.4,42.3,3.0,7.6,10.0,1.2,Wholemeal flour|water|yeast|salt|wheat protein|vinegar|emulsifiers|flour treatment agent (ascorbic acid)
-Tesco Whole Milk,dairy,Whole milk,Tesco,2,L,1.50,dairy|milk|whole,272,65,3.6,2.3,4.7,4.7,0.0,3.6,0.1,Milk
+Tesco Whole Milk,dairy,Whole milk,Tesco,2,l,1.50,dairy|milk|whole,272,65,3.6,2.3,4.7,4.7,0.0,3.6,0.1,Milk
 Tesco Greek Style Natural Yogurt,dairy,Natural yogurt,Tesco,1,kg,2.00,dairy|yogurt|greek,460,110,5.9,4.0,5.5,5.5,0.0,5.8,0.2,Natural yogurt
 Tesco Free Range Eggs, eggs,Free range eggs,Tesco,12,a,2.00,eggs|free range,555,133,9.3,2.5,0.5,0.5,0.0,12.0,0.35,Free range eggs
 Tesco Pork Sausages, meat,Pork sausages,Tesco,400,g,2.00,meat|sausages|pork,1264,304,25.0,8.6,7.6,1.6,0.6,12.3,1,Pork sausage
+Lidl Cereal Bar,snack,Blueberry cereal bar,Lidl,25,g,0.39,cereal bar|blueberry,1556,371,9.8,1.3,63.3,23.0,3.8,3.3,0.2,Whole grain oats|sugar|vegetable oil|blueberry fruit preparation|dextrose|glucose syrup|rice flour|almonds|wheat flour|oat flour|invert sugar syrup|citrus fiber|salt|flavoring
+Lidl Milk,milk,Semi-Skimmed milk,Lidl,2,l,1.09,milk|semi-skimmed,208,50,1.8,1.1,4.8,4.8,0.0,3.4,0.1,Semi-Skimmed Milk
+Lidl Crisps,snack,Ready salted crisps,Lidl,150,g,0.79,crisps|ready salted,2185,523,31.7,3.0,51.7,0.3,3.7,5.8,1.3,Potatoes|sunflower oil|salt
+Lidl Cheese,cheese,Cheddar cheese,Lidl,250,g,1.59,cheese|cheddar,1676,403,33.0,20.0,0.1,0.1,0.0,25.0,1.8,Milk|salt|starter culture|rennet
+Lidl Yoghurt,yoghurt,Natural yoghurt,Lidl,500,g,0.89,yoghurt|natural,273,65,3.5,2.2,4.7,4.7,0.0,4.4,0.1,Milk|cream|lactic cultures

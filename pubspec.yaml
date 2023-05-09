@@ -68,6 +68,8 @@ flutter:
     - assets/images/Logos/Facebook.png
     - assets/images/Logos/google.png
     - assets/images/Logos/logo.png
+    - assets/images/Logos/lidl.png
+    - assets/images/Logos/tesco.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
