@@ -3,6 +3,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
+import 'package:nutritionhelperuimodule/screens/home.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -14,7 +15,7 @@ class LoginScreen extends StatelessWidget {
         children: [
           ///***If you have exported images you must have to copy those images in assets/images directory.
           Image(
-            image: AssetImage("assets/images/logo.png"),
+            image: AssetImage("assets/images/Logos/logo.png"),
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
@@ -55,72 +56,6 @@ class LoginScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 0, 15),
-                  padding: EdgeInsets.all(0),
-                  width: 200,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Color(0xff000c6a),
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(25.0),
-                  ),
-                  child: Stack(
-                    alignment: Alignment.topLeft,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.all(12),
-                            child:
-
-                                ///***If you have exported images you must have to copy those images in assets/images directory.
-                                Image(
-                              image: AssetImage("assets/images/Facebook.png"),
-                              height: 25,
-                              width: 25,
-                              fit: BoxFit.scaleDown,
-                            ),
-                          ),
-                          Text(
-                            "Continue with Facebook",
-                            textAlign: TextAlign.start,
-                            overflow: TextOverflow.clip,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontStyle: FontStyle.normal,
-                              fontSize: 12,
-                              color: Color(0xffffffff),
-                            ),
-                          ),
-                        ],
-                      ),
-                      MaterialButton(
-                        onPressed: () {},
-                        color: Color(0x00ffffff),
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                        ),
-                        padding: EdgeInsets.all(16),
-                        child: Text(
-                          "",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            fontStyle: FontStyle.normal,
-                          ),
-                        ),
-                        textColor: Color(0xff000000),
-                        height: MediaQuery.of(context).size.height * 0.4,
-                        minWidth: MediaQuery.of(context).size.width,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
                   margin: EdgeInsets.all(0),
                   padding: EdgeInsets.all(0),
                   width: 200,
@@ -144,7 +79,8 @@ class LoginScreen extends StatelessWidget {
 
                                 ///***If you have exported images you must have to copy those images in assets/images directory.
                                 Image(
-                              image: AssetImage("assets/images/google.png"),
+                              image:
+                                  AssetImage("assets/images/Logos/google.png"),
                               height: 25,
                               width: 25,
                               fit: BoxFit.scaleDown,
@@ -164,7 +100,12 @@ class LoginScreen extends StatelessWidget {
                         ],
                       ),
                       MaterialButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeScreen()));
+                        },
                         color: Color(0x00ffffff),
                         elevation: 0,
                         shape: RoundedRectangleBorder(

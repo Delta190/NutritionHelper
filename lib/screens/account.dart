@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables
 
 import 'package:nutritionhelperuimodule/screens/favourites.dart';
+import 'package:nutritionhelperuimodule/screens/login.dart';
 import 'package:nutritionhelperuimodule/screens/nutritionlog.dart';
 import 'package:nutritionhelperuimodule/screens/home.dart';
 import 'package:flutter/material.dart';
@@ -231,7 +232,10 @@ class _AccountPageState extends State<AccountPage> {
               child: Align(
                 alignment: Alignment.center,
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                  },
                   color: Color(0xffffffff),
                   elevation: 0,
                   shape: RoundedRectangleBorder(

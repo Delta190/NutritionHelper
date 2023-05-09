@@ -93,28 +93,34 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Text(
-                          "NutrionIn",
-                          textAlign: TextAlign.start,
-                          overflow: TextOverflow.clip,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w800,
-                            fontStyle: FontStyle.normal,
-                            fontSize: 25,
-                            color: Color(0xffffffff),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(5, 5, 0, 0),
+                          child: Text(
+                            "NutrionIn",
+                            textAlign: TextAlign.start,
+                            overflow: TextOverflow.clip,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w800,
+                              fontStyle: FontStyle.normal,
+                              fontSize: 25,
+                              color: Color(0xffffffff),
+                            ),
                           ),
                         ),
-                        Text(
-                          "ME",
-                          textAlign: TextAlign.start,
-                          overflow: TextOverflow.clip,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w800,
-                            fontStyle: FontStyle.normal,
-                            fontSize: 25,
-                            color: Color(0xffded74b),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(5, 5, 0, 0),
+                          child: Text(
+                            "ME",
+                            textAlign: TextAlign.start,
+                            overflow: TextOverflow.clip,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w800,
+                              fontStyle: FontStyle.normal,
+                              fontSize: 25,
+                              color: Color(0xffded74b),
+                            ),
                           ),
-                        ),
+                        )
                       ],
                     ),
                     Row(
@@ -122,17 +128,20 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Text(
-                          "(Insert Slogan Here)",
-                          textAlign: TextAlign.start,
-                          overflow: TextOverflow.clip,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontStyle: FontStyle.normal,
-                            fontSize: 14,
-                            color: Color(0xffe4dbdb),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(5, 5, 0, 0),
+                          child: Text(
+                            "(Insert Slogan Here)",
+                            textAlign: TextAlign.start,
+                            overflow: TextOverflow.clip,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontStyle: FontStyle.normal,
+                              fontSize: 14,
+                              color: Color(0xffe4dbdb),
+                            ),
                           ),
-                        ),
+                        )
                       ],
                     ),
                     Container(
@@ -170,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.zero,
                               ),
-                              padding: EdgeInsets.fromLTRB(16, 16, 160, 16),
+                              padding: EdgeInsets.fromLTRB(16, 16, 16, 16),
                               child: Text(
                                 "Search Foods..",
                                 style: TextStyle(
