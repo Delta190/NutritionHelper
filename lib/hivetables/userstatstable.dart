@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 part 'userstatstable.g.dart';
 
-@HiveType(typeId: 0)
+@HiveType(typeId: 3)
 class UserStats {
   @HiveField(0)
   late int age;

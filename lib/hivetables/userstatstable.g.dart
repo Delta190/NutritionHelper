@@ -8,7 +8,7 @@ part of 'userstatstable.dart';
 
 class UserStatsAdapter extends TypeAdapter<UserStats> {
   @override
-  final int typeId = 0;
+  final int typeId = 3;
 
   @override
   UserStats read(BinaryReader reader) {

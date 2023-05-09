@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:hive/hive.dart';
-import 'package:nutritionhelperuimodule/hivetables/brandtable.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:nutritionhelperuimodule/hivetables/brandtable.dart';
 import 'package:nutritionhelperuimodule/hivetables/userdayintaketable.dart';
 import 'package:nutritionhelperuimodule/hivetables/userstatstable.dart';
 import 'package:nutritionhelperuimodule/hivetables/producttable.dart';
@@ -121,4 +121,24 @@ Future<void> loadBrands() async {
   }
 
   await brandBox.close();
+}
+
+//update/addition functionality below:
+
+void updateUserStats(
+    UserStats userStats,
+    int age,
+    String gender,
+    double height,
+    double weight,
+    List<String> allergies,
+    List<String> dietaryPreferences,
+    List<String> favourites) {
+  userStats.age = age;
+  userStats.gender = gender;
+  userStats.height = height;
+  userStats.weight = weight;
+  userStats.allergies = allergies;
+  userStats.dietaryPreferences = dietaryPreferences;
+  userStats.favourites = favourites;
 }
