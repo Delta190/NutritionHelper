@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:nutritionhelperuimodule/hivetables/DBInteraction.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:nutritionhelperuimodule/screens/account.dart';
 import 'package:nutritionhelperuimodule/screens/favourites.dart';
@@ -8,6 +9,10 @@ import 'package:nutritionhelperuimodule/screens/login.dart';
 import 'package:nutritionhelperuimodule/screens/nutritionlog.dart';
 
 void main() {
+  loadBrands();
+  loadProducts();
+  loadUserDayIntake();
+  loadUserStats();
   runApp(MyApp());
 }
 
