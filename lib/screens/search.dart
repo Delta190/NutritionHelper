@@ -1,26 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:nutritionhelperuimodule/hivetables/producttable.dart';
 import 'package:nutritionhelperuimodule/screens/account.dart';
 import 'package:nutritionhelperuimodule/screens/favourites.dart';
 import 'package:nutritionhelperuimodule/screens/nutritionlog.dart';
 import 'package:nutritionhelperuimodule/screens/home.dart';
 import 'package:flutter/material.dart';
-
-class Product {
-  int id;
-  String name;
-  String brand;
-
-  Product({required this.id, required this.name, required this.brand});
-}
-
-final List<Product> products = [
-  Product(id: 1, name: "Product A", brand: "Brand X"),
-  Product(id: 2, name: "Product B", brand: "Brand Y"),
-  Product(id: 3, name: "Product C", brand: "Brand Z"),
-  Product(id: 4, name: "Product D", brand: "Brand X"),
-  Product(id: 5, name: "Product E", brand: "Brand Y"),
-];
+import 'package:hive/hive.dart';
+import 'package:nutritionhelperuimodule/hivetables/DBInteraction.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -30,15 +17,21 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   int _currentIndex = 0;
   String _searchText = "";
-  List<Product> _filteredProducts = [];
+  List<String> _matchingProductNames = [];
 
   void _filterProducts(String searchText) {
     setState(() {
-      _filteredProducts = products
-          .where((product) =>
-              product.name.toLowerCase().contains(searchText.toLowerCase()))
-          .toList();
+      _matchingProductNames = retrievalquery(searchText);
     });
+  }
+
+  List<String> retrievalquery(String searchText) {
+    final productBox = Hive.box<Product>('product');
+    final allProducts = productBox.values.toList();
+    final matchingProducts =
+        allProducts.where((p) => p.name.contains(searchText)).toList();
+    final matchingProductNames = matchingProducts.map((p) => p.name).toList();
+    return matchingProductNames;
   }
 
   void onTabTapped(int index) {
@@ -107,7 +100,7 @@ class _SearchPageState extends State<SearchPage> {
                       //controller: TextEditingController(),
                       onChanged: (value) {
                         _searchText = value;
-                        _filterProducts(_searchText);
+                        retrievalquery(_searchText);
                       },
                       obscureText: false,
                       textAlign: TextAlign.start,
@@ -153,13 +146,13 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                   Expanded(
                     child: ListView.builder(
-                      itemCount: _filteredProducts.length,
+                      itemCount: _matchingProductNames.length,
                       itemBuilder: (context, index) {
                         return TextButton(
                           onPressed: () {
                             // Do something when the button is pressed
                           },
-                          child: Text(_filteredProducts[index].name),
+                          child: Text(_matchingProductNames[index]),
                         );
                       },
                     ),

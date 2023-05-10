@@ -70,6 +70,10 @@ flutter:
     - assets/images/Logos/logo.png
     - assets/images/Logos/lidl.png
     - assets/images/Logos/tesco.png
+    - assets/images/tags/Fresh.jfif
+    - assets/images/tags/Meat.jfif
+    - assets/images/tags/milk.jpg
+    - assets/images/tags/Yoghurt.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

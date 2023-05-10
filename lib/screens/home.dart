@@ -233,7 +233,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Padding(
                     padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                     child: Text(
-                      "Meals",
+                      "Tags",
                       textAlign: TextAlign.start,
                       overflow: TextOverflow.clip,
                       style: TextStyle(
@@ -242,29 +242,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontSize: 14,
                         color: Color(0xff000000),
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
-                    child: MaterialButton(
-                      onPressed: () {},
-                      color: Color(0x00ffffff),
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.zero,
-                      ),
-                      padding: EdgeInsets.all(16),
-                      child: Text(
-                        "See All...",
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                          fontStyle: FontStyle.italic,
-                        ),
-                      ),
-                      textColor: Color(0xff000000),
-                      height: 40,
-                      minWidth: 0,
                     ),
                   ),
                 ],
@@ -312,7 +289,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ///***If you have exported images you must have to copy those images in assets/images directory.
                                     Image(
                                   image: NetworkImage(
-                                      "https://picsum.photos/250?image=9"),
+                                      "assets/images/tags/Fresh.jfif"),
                                   height: 60,
                                   width: 60,
                                   fit: BoxFit.scaleDown,
@@ -322,7 +299,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Padding(
                               padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
                               child: Text(
-                                "Text",
+                                "Fresh",
                                 textAlign: TextAlign.start,
                                 overflow: TextOverflow.clip,
                                 style: TextStyle(
@@ -385,7 +362,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ///***If you have exported images you must have to copy those images in assets/images directory.
                                     Image(
                                   image: NetworkImage(
-                                      "https://picsum.photos/250?image=9"),
+                                      "assets/images/tags/Meat.jfif"),
                                   height: 60,
                                   width: 60,
                                   fit: BoxFit.scaleDown,
@@ -393,7 +370,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             Text(
-                              "Text",
+                              "Meat",
                               textAlign: TextAlign.start,
                               overflow: TextOverflow.clip,
                               style: TextStyle(
@@ -455,7 +432,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ///***If you have exported images you must have to copy those images in assets/images directory.
                                     Image(
                                   image: NetworkImage(
-                                      "https://picsum.photos/250?image=9"),
+                                      "assets/images/tags/Yoghurt.jpg"),
                                   height: 60,
                                   width: 60,
                                   fit: BoxFit.scaleDown,
@@ -463,7 +440,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             Text(
-                              "Text",
+                              "Yoghurt",
                               textAlign: TextAlign.start,
                               overflow: TextOverflow.clip,
                               style: TextStyle(
@@ -525,7 +502,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ///***If you have exported images you must have to copy those images in assets/images directory.
                                     Image(
                                   image: NetworkImage(
-                                      "https://picsum.photos/250?image=9"),
+                                      "assets/images/tags/milk.jpg"),
                                   height: 60,
                                   width: 60,
                                   fit: BoxFit.scaleDown,
@@ -533,7 +510,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             Text(
-                              "Text",
+                              "Milk",
                               textAlign: TextAlign.start,
                               overflow: TextOverflow.clip,
                               style: TextStyle(
@@ -566,53 +543,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           minWidth: MediaQuery.of(context).size.width,
                         ),
                       ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 25, 0, 0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-                    child: Text(
-                      "Categories",
-                      textAlign: TextAlign.start,
-                      overflow: TextOverflow.clip,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontStyle: FontStyle.normal,
-                        fontSize: 14,
-                        color: Color(0xff000000),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
-                    child: MaterialButton(
-                      onPressed: () {},
-                      color: Color(0x00ffffff),
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.zero,
-                      ),
-                      padding: EdgeInsets.all(16),
-                      child: Text(
-                        "See All...",
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                          fontStyle: FontStyle.italic,
-                        ),
-                      ),
-                      textColor: Color(0xff000000),
-                      height: 40,
-                      minWidth: 0,
                     ),
                   ),
                 ],
