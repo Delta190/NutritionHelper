@@ -142,3 +142,45 @@ void updateUserStats(
   userStats.dietaryPreferences = dietaryPreferences;
   userStats.favourites = favourites;
 }
+
+void addProductNutrition(String userID, String productName) {
+  final today = DateTime.now();
+
+  // Search
+  final productBox = Hive.box<Product>('products');
+  final product = productBox.values.firstWhere((p) => p.name == productName);
+  final userDayIntakeBox = Hive.box<UserDayIntake>('userdayintake');
+  final userDayIntakeList = userDayIntakeBox.values
+      .where((udi) => udi.userID == userID && udi.date == today);
+
+  if (userDayIntakeList.isNotEmpty) {
+    // Calculate by addition
+    final userDayIntake = userDayIntakeList.first;
+    userDayIntake.calories += product.energyKcal;
+    userDayIntake.fat += product.fat;
+    userDayIntake.saturates += product.saturates;
+    userDayIntake.carbohydrates += product.carbohydrate;
+    userDayIntake.fibre += product.fibre;
+    userDayIntake.protein += product.protein;
+    userDayIntake.salt += product.salt;
+
+    // Add the updated record
+    userDayIntakeBox.put(userDayIntakeBox.keyAt(0), userDayIntake);
+  } else {
+    // Create new record
+    final newUserDayIntake = UserDayIntake()
+      ..userID = userID
+      ..date = today
+      ..calories = product.energyKcal
+      ..fat = product.fat
+      ..saturates = product.saturates
+      ..carbohydrates = product.carbohydrate
+      ..fibre = product.fibre
+      ..protein = product.protein
+      ..salt = product.salt;
+
+    // Add the record
+    userDayIntakeBox.add(newUserDayIntake);
+    userDayIntakeBox.close();
+  }
+}
