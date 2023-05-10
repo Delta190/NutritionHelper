@@ -17,32 +17,35 @@ class UserStatsAdapter extends TypeAdapter<UserStats> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return UserStats()
-      ..age = fields[0] as int
-      ..gender = fields[1] as String
-      ..height = fields[2] as double
-      ..weight = fields[3] as double
-      ..allergies = (fields[4] as List).cast<String>()
-      ..dietaryPreferences = (fields[5] as List).cast<String>()
-      ..favourites = (fields[6] as List).cast<String>();
+      ..userID = fields[0] as int
+      ..age = fields[1] as int
+      ..gender = fields[2] as String
+      ..height = fields[3] as double
+      ..weight = fields[4] as double
+      ..allergies = (fields[5] as List).cast<String>()
+      ..dietaryPreferences = (fields[6] as List).cast<String>()
+      ..favourites = (fields[7] as List).cast<String>();
   }
 
   @override
   void write(BinaryWriter writer, UserStats obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(8)
       ..writeByte(0)
-      ..write(obj.age)
+      ..write(obj.userID)
       ..writeByte(1)
-      ..write(obj.gender)
+      ..write(obj.age)
       ..writeByte(2)
-      ..write(obj.height)
+      ..write(obj.gender)
       ..writeByte(3)
-      ..write(obj.weight)
+      ..write(obj.height)
       ..writeByte(4)
-      ..write(obj.allergies)
+      ..write(obj.weight)
       ..writeByte(5)
-      ..write(obj.dietaryPreferences)
+      ..write(obj.allergies)
       ..writeByte(6)
+      ..write(obj.dietaryPreferences)
+      ..writeByte(7)
       ..write(obj.favourites);
   }
 

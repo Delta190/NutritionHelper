@@ -5,23 +5,26 @@ part 'userstatstable.g.dart';
 @HiveType(typeId: 3)
 class UserStats {
   @HiveField(0)
-  late int age;
+  late int userID;
 
   @HiveField(1)
-  late String gender;
+  late int age;
 
   @HiveField(2)
-  late double height;
+  late String gender;
 
   @HiveField(3)
-  late double weight;
+  late double height;
 
   @HiveField(4)
-  late List<String> allergies;
+  late double weight;
 
   @HiveField(5)
-  late List<String> dietaryPreferences;
+  late List<String> allergies;
 
   @HiveField(6)
+  late List<String> dietaryPreferences;
+
+  @HiveField(7)
   late List<String> favourites;
 }

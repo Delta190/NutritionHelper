@@ -7,7 +7,7 @@ import 'package:nutritionhelperuimodule/screens/itemdisplay.dart';
 import 'package:nutritionhelperuimodule/screens/nutritionlog.dart';
 import 'package:nutritionhelperuimodule/screens/home.dart';
 import 'package:flutter/material.dart';
-import 'package:nutritionhelperuimodule/hivetables/tableloader.dart';
+import 'package:nutritionhelperuimodule/hivetables/DBInteraction.dart';
 
 class SearchPage extends StatefulWidget {
   @override

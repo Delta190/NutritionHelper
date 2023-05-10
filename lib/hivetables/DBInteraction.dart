@@ -184,3 +184,31 @@ void addProductNutrition(String userID, String productName) {
     userDayIntakeBox.close();
   }
 }
+
+void addFavourite(String userID, String productName) {
+  final userStatsBox = Hive.box<UserStats>('userstats');
+  final userStats = userStatsBox.get(userID);
+
+  if (userStats != null) {
+    final favourites = List<String>.from(userStats.favourites);
+    favourites.add(productName);
+    userStats.favourites = favourites;
+
+    userStatsBox.put(userID, userStats);
+    userStatsBox.close();
+  } else {
+    print('User not found');
+  }
+}
+
+void delFavourite(String userID, String productName) {
+  final userStatsBox = Hive.box<UserStats>('userstats');
+  final userStats = userStatsBox.values.firstWhere((us) =>
+      us.userID ==
+      userID); //this didnt work in the previous function NO IDEA why
+
+  if (userStats.favourites.contains(productName)) {
+    userStats.favourites.remove(productName);
+    userStatsBox.put(userStatsBox.keyAt(0), userStats);
+  }
+}
