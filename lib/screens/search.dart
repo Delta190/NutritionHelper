@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:nutritionhelperuimodule/hivetables/brandtable.dart';
 import 'package:nutritionhelperuimodule/hivetables/producttable.dart';
 import 'package:nutritionhelperuimodule/screens/account.dart';
 import 'package:nutritionhelperuimodule/screens/favourites.dart';
@@ -17,21 +18,32 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   int _currentIndex = 0;
   String _searchText = "";
-  List<String> _matchingProductNames = [];
 
-  void _filterProducts(String searchText) {
-    setState(() {
-      _matchingProductNames = retrievalquery(searchText);
-    });
+  List<dynamic> retrievalquery(String searchText) {
+    final productBox = Hive.box<Product>('product');
+    final brandBox = Hive.box<Brand>('brand');
+    final matchingProducts =
+        productBox.values.where((p) => p.name.contains(searchText)).toList();
+    final brandMap = Map.fromIterable(brandBox.values, key: (b) => b.name);
+    final logoLinks = <String>[];
+    for (var product in matchingProducts) {
+      final brandName = product.brand;
+      if (brandMap.containsKey(brandName)) {
+        logoLinks.add(brandMap[brandName].logoLink);
+      } else {
+        logoLinks.add('');
+      }
+    }
+    return [matchingProducts, logoLinks];
   }
 
-  List<String> retrievalquery(String searchText) {
-    final productBox = Hive.box<Product>('product');
-    final allProducts = productBox.values.toList();
-    final matchingProducts =
-        allProducts.where((p) => p.name.contains(searchText)).toList();
-    final matchingProductNames = matchingProducts.map((p) => p.name).toList();
-    return matchingProductNames;
+  List<Product> _matchingProducts = [];
+  List<String> _brandLogoLinks = [];
+
+  void _searchProducts(String searchText) {
+    final result = retrievalquery(searchText);
+    _matchingProducts = result[0];
+    _brandLogoLinks = result[1];
   }
 
   void onTabTapped(int index) {
@@ -97,10 +109,10 @@ class _SearchPageState extends State<SearchPage> {
                       borderRadius: BorderRadius.zero,
                     ),
                     child: TextField(
-                      //controller: TextEditingController(),
                       onChanged: (value) {
-                        _searchText = value;
-                        retrievalquery(_searchText);
+                        setState(() {
+                          _searchProducts(value);
+                        });
                       },
                       obscureText: false,
                       textAlign: TextAlign.start,
@@ -146,13 +158,29 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                   Expanded(
                     child: ListView.builder(
-                      itemCount: _matchingProductNames.length,
+                      itemCount: _matchingProducts.length,
                       itemBuilder: (context, index) {
+                        final product = _matchingProducts[index];
+                        final brandLogoLink = _brandLogoLinks[index];
                         return TextButton(
                           onPressed: () {
                             // Do something when the button is pressed
                           },
-                          child: Text(_matchingProductNames[index]),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(product.name),
+                              Text('Type: ${product.type}'),
+                              Text('Description: ${product.description}'),
+                              Text('Brand: ${product.brand}'),
+                              Text(
+                                  'Weight: ${product.weight} ${product.weightUnit}'),
+                              Text('Price: ${product.price}'),
+                              Text('Tags: ${product.tags.join(', ')}'),
+                              Text('Energy Kcal: ${product.energyKcal}'),
+                              Image.network(brandLogoLink),
+                            ],
+                          ),
                         );
                       },
                     ),
