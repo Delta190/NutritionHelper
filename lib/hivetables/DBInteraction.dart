@@ -125,22 +125,25 @@ Future<void> loadBrands() async {
 
 //update/addition functionality below:
 
-void updateUserStats(
-    UserStats userStats,
-    int age,
-    String gender,
-    double height,
-    double weight,
-    List<String> allergies,
-    List<String> dietaryPreferences,
-    List<String> favourites) {
-  userStats.age = age;
-  userStats.gender = gender;
-  userStats.height = height;
-  userStats.weight = weight;
-  userStats.allergies = allergies;
-  userStats.dietaryPreferences = dietaryPreferences;
-  userStats.favourites = favourites;
+Future<void> updateGender(int userID, String newGender) async {
+  final box = await Hive.openBox<UserStats>('user_stats');
+  final userStats = box.get(userID);
+  userStats!.gender = newGender;
+  await box.put(userID, userStats);
+}
+
+Future<void> updateHeight(int userID, double newHeight) async {
+  final box = await Hive.openBox<UserStats>('user_stats');
+  final userStats = box.get(userID);
+  userStats!.height = newHeight;
+  await box.put(userID, userStats);
+}
+
+Future<void> updateWeight(int userID, double newWeight) async {
+  final box = await Hive.openBox<UserStats>('user_stats');
+  final userStats = box.get(userID);
+  userStats!.weight = newWeight;
+  await box.put(userID, userStats);
 }
 
 void addProductNutrition(String userID, String productName) {
@@ -197,18 +200,86 @@ void addFavourite(String userID, String productName) {
     userStatsBox.put(userID, userStats);
     userStatsBox.close();
   } else {
-    print('User not found');
+    print('addFavourite error, user not found');
   }
 }
 
 void delFavourite(String userID, String productName) {
   final userStatsBox = Hive.box<UserStats>('userstats');
-  final userStats = userStatsBox.values.firstWhere((us) =>
-      us.userID ==
-      userID); //this didnt work in the previous function NO IDEA why
+  final userStats = userStatsBox.get(userID);
 
-  if (userStats.favourites.contains(productName)) {
-    userStats.favourites.remove(productName);
-    userStatsBox.put(userStatsBox.keyAt(0), userStats);
+  if (userStats != null && userStats.favourites.contains(productName)) {
+    final favourites = List<String>.from(userStats.favourites);
+    favourites.remove(productName);
+    userStats.favourites = favourites;
+
+    userStatsBox.put(userID, userStats);
+    userStatsBox.close();
+  } else {
+    print('delFavourite error, user/item not found');
+  }
+}
+
+void addAllergy(String userID, String allergy) {
+  final userStatsBox = Hive.box<UserStats>('userstats');
+  final userStats = userStatsBox.get(userID);
+
+  if (userStats != null) {
+    final allergies = List<String>.from(userStats.allergies);
+    allergies.add(allergy);
+    userStats.allergies = allergies;
+
+    userStatsBox.put(userID, userStats);
+    userStatsBox.close();
+  } else {
+    print('addAllergy error, user not found');
+  }
+}
+
+void delAllergy(String userID, String allergy) {
+  final userStatsBox = Hive.box<UserStats>('userstats');
+  final userStats = userStatsBox.get(userID);
+
+  if (userStats != null && userStats.allergies.contains(allergy)) {
+    final allergies = List<String>.from(userStats.allergies);
+    allergies.remove(allergy);
+    userStats.allergies = allergies;
+
+    userStatsBox.put(userID, userStats);
+    userStatsBox.close();
+  } else {
+    print('delAllergy error, user/allergy not found');
+  }
+}
+
+void addDietaryPreference(String userID, String preference) {
+  final userStatsBox = Hive.box<UserStats>('userstats');
+  final userStats = userStatsBox.get(userID);
+
+  if (userStats != null) {
+    final preferences = List<String>.from(userStats.dietaryPreferences);
+    preferences.add(preference);
+    userStats.dietaryPreferences = preferences;
+
+    userStatsBox.put(userID, userStats);
+    userStatsBox.close();
+  } else {
+    print('addDietaryPreference error, user not found');
+  }
+}
+
+void delDietaryPreference(String userID, String preference) {
+  final userStatsBox = Hive.box<UserStats>('userstats');
+  final userStats = userStatsBox.get(userID);
+
+  if (userStats != null && userStats.dietaryPreferences.contains(preference)) {
+    final preferences = List<String>.from(userStats.dietaryPreferences);
+    preferences.remove(preference);
+    userStats.dietaryPreferences = preferences;
+
+    userStatsBox.put(userID, userStats);
+    userStatsBox.close();
+  } else {
+    print('delDietaryPreference error, user/preference not found');
   }
 }
