@@ -2,11 +2,32 @@
 
 import 'dart:io';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:nutritionhelperuimodule/hivetables/brandtable.dart';
 import 'package:nutritionhelperuimodule/hivetables/userdayintaketable.dart';
 import 'package:nutritionhelperuimodule/hivetables/userstatstable.dart';
 import 'package:nutritionhelperuimodule/hivetables/producttable.dart';
+
+Future<void> initializeHive() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(BrandAdapter());
+  Hive.registerAdapter(ProductAdapter());
+  Hive.registerAdapter(UserDayIntakeAdapter());
+  Hive.registerAdapter(UserStatsAdapter());
+
+  await Hive.openBox<Brand>('brand');
+  await loadBrands();
+
+  await Hive.openBox<Product>('product');
+  await loadProducts();
+
+  await Hive.openBox<UserDayIntake>('userDayIntake');
+  await loadUserDayIntake();
+
+  await Hive.openBox<UserStats>('userStats');
+  await loadUserStats();
+}
 
 Future<void> loadProducts() async {
   final productBox = await Hive.openBox<Product>('product');
