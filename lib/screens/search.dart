@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import
 
 import 'package:nutritionhelperuimodule/hivetables/brandtable.dart';
 import 'package:nutritionhelperuimodule/hivetables/producttable.dart';

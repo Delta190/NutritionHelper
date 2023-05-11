@@ -1,5 +1,7 @@
 ///File download from FlutterViz- Drag and drop a tools. For more details visit https://flutterviz.io/
 
+// ignore_for_file: unused_import
+
 import 'package:nutritionhelperuimodule/hivetables/producttable.dart';
 import 'package:nutritionhelperuimodule/screens/account.dart';
 import 'package:nutritionhelperuimodule/screens/favourites.dart';
