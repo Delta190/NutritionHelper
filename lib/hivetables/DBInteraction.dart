@@ -1,12 +1,22 @@
-// ignore_for_file: avoid_print, unused_import
+// ignore_for_file: avoid_print, unused_import, unnecessary_import
 
 import 'dart:io';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:nutritionhelperuimodule/hivetables/brandtable.dart';
 import 'package:nutritionhelperuimodule/hivetables/userdayintaketable.dart';
 import 'package:nutritionhelperuimodule/hivetables/userstatstable.dart';
 import 'package:nutritionhelperuimodule/hivetables/producttable.dart';
+
+Future<void> initialiser() async {
+  Hive.initFlutter();
+  registerAdapters();
+  await loadBrands();
+  await loadProducts();
+  await loadUserDayIntake();
+  await loadUserStats();
+}
 
 Future<void> loadProducts() async {
   final productBox = await Hive.openBox<Product>('product');
@@ -100,6 +110,13 @@ Future<void> loadUserStats() async {
   }
 
   await userStatsBox.close();
+}
+
+void registerAdapters() {
+  Hive.registerAdapter<Product>(ProductAdapter());
+  Hive.registerAdapter<UserStats>(UserStatsAdapter());
+  Hive.registerAdapter<Brand>(BrandAdapter());
+  Hive.registerAdapter<UserDayIntake>(UserDayIntakeAdapter());
 }
 
 Future<void> loadBrands() async {

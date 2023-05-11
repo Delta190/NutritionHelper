@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:nutritionhelperuimodule/hivetables/DBInteraction.dart';
 import 'package:nutritionhelperuimodule/screens/account.dart';
@@ -7,10 +9,7 @@ import 'package:nutritionhelperuimodule/screens/login.dart';
 import 'package:nutritionhelperuimodule/screens/nutritionlog.dart';
 
 void main() {
-  loadBrands();
-  loadProducts();
-  loadUserDayIntake();
-  loadUserStats();
+  initialiser();
   runApp(const MyApp());
 }
 

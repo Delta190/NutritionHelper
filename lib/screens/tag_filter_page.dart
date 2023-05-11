@@ -26,17 +26,17 @@ class _SearchPageState extends State<SearchPage> {
       _currentIndex = index;
 
       if (index == 0) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const HomeScreen()));
       } else if (index == 1) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const NutritionLog()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const NutritionLog()));
       } else if (index == 2) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const FavouritePage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const FavouritePage()));
       } else if (index == 3) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const AccountPage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const AccountPage()));
       }
     });
   }
@@ -112,7 +112,7 @@ class _SearchPageState extends State<SearchPage> {
                     physics: const ScrollPhysics(),
                     children: const [
                       Text(
-                        "(Temporary) Used to display all data then the inout in the search bar will filter",
+                        "(Temporary) Used to display all data then the input in the search bar will filter",
                         textAlign: TextAlign.start,
                         overflow: TextOverflow.clip,
                         style: TextStyle(
