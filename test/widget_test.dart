@@ -13,7 +13,7 @@ import 'package:nutritionhelperuimodule/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(const MyApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
@@ -31,7 +31,7 @@ void main() {
 
   testWidgets('Log ingredients test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(const MyApp());
 
     // Verify that the ingredients section is initially empty.
     expect(find.text('Ingredients:'), findsOneWidget);
@@ -59,7 +59,7 @@ void main() {
 
     testWidgets('Log measurements test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(const MyApp());
 
     // Verify that the measurements section is initially empty.
     expect(find.text('Measurements:'), findsOneWidget);
@@ -81,7 +81,7 @@ void main() {
 
       testWidgets('Filter test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(const MyApp());
 
     // Verify that all items are initially displayed.
     expect(find.text('Filtered Items'), findsNothing);
@@ -105,7 +105,7 @@ void main() {
 
      testWidgets('Keyword Search test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(const MyApp());
 
     // Verify that all items are initially displayed.
     expect(find.text('Apples'), findsOneWidget);

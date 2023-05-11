@@ -9,6 +9,8 @@ import 'package:nutritionhelperuimodule/screens/home.dart';
 import 'package:flutter/material.dart';
 
 class NutritionLog extends StatefulWidget {
+  const NutritionLog({super.key});
+
   @override
   _NutritionLogState createState() => _NutritionLogState();
 }
@@ -125,6 +127,9 @@ class _NutritionLogState extends State<NutritionLog> {
                             borderRadius: BorderRadius.circular(25.0),
                           ),
                           padding: EdgeInsets.all(16),
+                          textColor: Color(0xff000000),
+                          height: 40,
+                          minWidth: 140,
                           child: Text(
                             "Log Item",
                             style: TextStyle(
@@ -133,9 +138,6 @@ class _NutritionLogState extends State<NutritionLog> {
                               fontStyle: FontStyle.normal,
                             ),
                           ),
-                          textColor: Color(0xff000000),
-                          height: 40,
-                          minWidth: 140,
                         ),
                       ),
                     ],

@@ -7,6 +7,8 @@ import 'package:nutritionhelperuimodule/screens/home.dart';
 import 'package:flutter/material.dart';
 
 class ItemDisplayTest extends StatefulWidget {
+  const ItemDisplayTest({super.key});
+
   @override
   _ItemDisplayTestState createState() => _ItemDisplayTestState();
 }

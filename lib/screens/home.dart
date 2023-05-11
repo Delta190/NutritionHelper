@@ -9,6 +9,8 @@ import 'package:nutritionhelperuimodule/screens/nutritionlog.dart';
 import 'package:nutritionhelperuimodule/screens/search.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }

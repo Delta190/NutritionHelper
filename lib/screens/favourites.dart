@@ -6,6 +6,8 @@ import 'package:nutritionhelperuimodule/screens/nutritionlog.dart';
 import 'package:flutter/material.dart';
 
 class FavouritePage extends StatefulWidget {
+  const FavouritePage({super.key});
+
   @override
   _FavouritePageState createState() => _FavouritePageState();
 }

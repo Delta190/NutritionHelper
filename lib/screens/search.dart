@@ -11,6 +11,8 @@ import 'package:hive/hive.dart';
 import 'package:nutritionhelperuimodule/hivetables/DBInteraction.dart';
 
 class SearchPage extends StatefulWidget {
+  const SearchPage({super.key});
+
   @override
   _SearchPageState createState() => _SearchPageState();
 }

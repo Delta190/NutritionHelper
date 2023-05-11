@@ -11,10 +11,12 @@ void main() {
   loadProducts();
   loadUserDayIntake();
   loadUserStats();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -23,10 +25,10 @@ class _MyAppState extends State<MyApp> {
   int _currentIndex = 0;
 
   final List<Widget> _children = [
-    HomeScreen(),
-    NutritionLog(),
-    FavouritePage(),
-    AccountPage(),
+    const HomeScreen(),
+    const NutritionLog(),
+    const FavouritePage(),
+    const AccountPage(),
   ];
 
   void onTabTapped(int index) {
@@ -52,7 +54,7 @@ class _MyAppState extends State<MyApp> {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: LoginScreen(),
+      home: const LoginScreen(),
     );
   }
 }
@@ -101,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
