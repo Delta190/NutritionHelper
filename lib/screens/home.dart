@@ -1,7 +1,8 @@
 ///File download from FlutterViz- Drag and drop a tools. For more details visit https://flutterviz.io/
 
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, unused_import
 
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:nutritionhelperuimodule/screens/account.dart';
 import 'package:nutritionhelperuimodule/screens/favourites.dart';
@@ -283,21 +284,33 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                              padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
                               child: Align(
                                 alignment: Alignment.center,
-                                child:
-
-                                    ///***If you have exported images you must have to copy those images in assets/images directory.
-                                    Image(
-                                  image: NetworkImage(
-                                      "assets/images/tags/Fresh.jfif"),
+                                child: Container(
                                   height: 60,
                                   width: 60,
-                                  fit: BoxFit.scaleDown,
+                                  child: Icon(Icons.image),
                                 ),
                               ),
                             ),
+
+                            // Padding(
+                            //   padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                            //   child: Align(
+                            //     alignment: Alignment.center,
+                            //     child:
+
+                            //         ///***If you have exported images you must have to copy those images in assets/images directory.
+                            //         Image(
+                            //       image: NetworkImage(
+                            //           "assets/images/tags/Yoghurt.jpg"),
+                            //       height: 60,
+                            //       width: 60,
+                            //       fit: BoxFit.scaleDown,
+                            //     ),
+                            //   ),
+                            // ),
                             Padding(
                               padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
                               child: Text(
@@ -359,18 +372,36 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
                               child: Align(
                                 alignment: Alignment.center,
-                                child:
-
-                                    ///***If you have exported images you must have to copy those images in assets/images directory.
-                                    Image(
-                                  image: NetworkImage(
-                                      "assets/images/tags/Meat.jfif"),
+                                child: Container(
                                   height: 60,
                                   width: 60,
-                                  fit: BoxFit.scaleDown,
+                                  child: Icon(Icons.image),
                                 ),
                               ),
                             ),
+
+                            // Padding(
+                            //   padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+                            //   child: Align(
+                            //     alignment: Alignment.center,
+                            //     child: Builder(
+                            //       builder: (BuildContext context) {
+                            //         final imageFile =
+                            //             File('assets/images/tags/Yoghurt.jpg');
+                            //         if (imageFile.existsSync()) {
+                            //           return Image.file(
+                            //             imageFile,
+                            //             height: 60,
+                            //             width: 60,
+                            //             fit: BoxFit.scaleDown,
+                            //           );
+                            //         } else {
+                            //           return Text('Image not found');
+                            //         }
+                            //       },
+                            //     ),
+                            //   ),
+                            // ),
                             Text(
                               "Meat",
                               textAlign: TextAlign.start,
@@ -429,18 +460,30 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
                               child: Align(
                                 alignment: Alignment.center,
-                                child:
-
-                                    ///***If you have exported images you must have to copy those images in assets/images directory.
-                                    Image(
-                                  image: NetworkImage(
-                                      "assets/images/tags/Yoghurt.jpg"),
+                                child: Container(
                                   height: 60,
                                   width: 60,
-                                  fit: BoxFit.scaleDown,
+                                  child: Icon(Icons.image),
                                 ),
                               ),
                             ),
+
+                            // Padding(
+                            //   padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+                            //   child: Align(
+                            //     alignment: Alignment.center,
+                            //     child:
+
+                            //         ///***If you have exported images you must have to copy those images in assets/images directory.
+                            //         Image(
+                            //       image: NetworkImage(
+                            //           "assets/images/tags/Yoghurt.jpg"),
+                            //       height: 60,
+                            //       width: 60,
+                            //       fit: BoxFit.scaleDown,
+                            //     ),
+                            //   ),
+                            // ),
                             Text(
                               "Yoghurt",
                               textAlign: TextAlign.start,
@@ -499,15 +542,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
                               child: Align(
                                 alignment: Alignment.center,
-                                child:
-
-                                    ///***If you have exported images you must have to copy those images in assets/images directory.
-                                    Image(
-                                  image: NetworkImage(
-                                      "assets/images/tags/milk.jpg"),
+                                child: Container(
                                   height: 60,
                                   width: 60,
-                                  fit: BoxFit.scaleDown,
+                                  child: Icon(Icons.image),
                                 ),
                               ),
                             ),
