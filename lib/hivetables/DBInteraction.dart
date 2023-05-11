@@ -32,7 +32,7 @@ Future<void> initializeHive() async {
 Future<void> loadProducts() async {
   final productBox = await Hive.openBox<Product>('product');
 
-  final file = File('products.csv');
+  final file = File('lib/hivetables/products.csv');
 
   final contents = await file.readAsString(); // Read the contents
 
@@ -70,7 +70,7 @@ Future<void> loadProducts() async {
 Future<void> loadUserDayIntake() async {
   final userDayIntakeBox = await Hive.openBox<UserDayIntake>('userDayIntake');
 
-  final file = File('userdayintake.csv');
+  final file = File('lib/hivetables/userdayintake.csv');
 
   final contents = await file.readAsString();
 
@@ -99,7 +99,7 @@ Future<void> loadUserDayIntake() async {
 Future<void> loadUserStats() async {
   final userStatsBox = await Hive.openBox<UserStats>('userstats');
 
-  final file = File('userstats.csv');
+  final file = File('lib/hivetables/userstats.csv');
 
   final contents = await file.readAsString();
 
@@ -133,7 +133,7 @@ void registerAdapters() {
 Future<void> loadBrands() async {
   final brandBox = await Hive.openBox<Brand>('brand');
 
-  final file = File('brands.csv');
+  final file = File('lib/hivetables/brands.csv');
 
   final contents = await file.readAsString();
 
