@@ -9,7 +9,7 @@ import 'package:nutritionhelperuimodule/screens/login.dart';
 import 'package:nutritionhelperuimodule/screens/nutritionlog.dart';
 
 void main() {
-  initialiser();
+  initializeHive();
   runApp(const MyApp());
 }
 
