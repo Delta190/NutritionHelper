@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:io';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
@@ -121,6 +123,46 @@ Future<void> loadBrands() async {
   }
 
   await brandBox.close();
+}
+
+//search functionality below:
+List<dynamic> retrievalquery(String searchText) {
+  final productBox = Hive.box<Product>('product');
+  final brandBox = Hive.box<Brand>('brand');
+  final matchingProducts =
+      productBox.values.where((p) => p.name.contains(searchText)).toList();
+  final brandMap = Map.fromIterable(brandBox.values, key: (b) => b.name);
+  final logoLinks = <String>[];
+  for (var product in matchingProducts) {
+    final brandName = product.brand;
+    if (brandMap.containsKey(brandName)) {
+      logoLinks.add(brandMap[brandName].logoLink);
+    } else {
+      logoLinks.add('');
+    }
+  }
+  return [matchingProducts, logoLinks];
+}
+
+List<dynamic> favouritesquery(String userId) {
+  final productBox = Hive.box<Product>('product');
+  final brandBox = Hive.box<Brand>('brand');
+  final matchingProducts = productBox.values.toList();
+  final brandMap = Map.fromIterable(brandBox.values, key: (b) => b.name);
+  final logoLinks = <String>[];
+  final userStatsBox = Hive.box<UserStats>('userStats');
+  final favourites = userStatsBox.get(userId)?.favourites ?? <String>{};
+  final matchingFavouriteProducts =
+      matchingProducts.where((p) => favourites.contains(p.name)).toList();
+  for (var product in matchingFavouriteProducts) {
+    final brandName = product.brand;
+    if (brandMap.containsKey(brandName)) {
+      logoLinks.add(brandMap[brandName].logoLink);
+    } else {
+      logoLinks.add('');
+    }
+  }
+  return [matchingFavouriteProducts, logoLinks];
 }
 
 //update/addition functionality below:

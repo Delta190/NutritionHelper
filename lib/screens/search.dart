@@ -17,25 +17,6 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   int _currentIndex = 0;
-  String _searchText = "";
-
-  List<dynamic> retrievalquery(String searchText) {
-    final productBox = Hive.box<Product>('product');
-    final brandBox = Hive.box<Brand>('brand');
-    final matchingProducts =
-        productBox.values.where((p) => p.name.contains(searchText)).toList();
-    final brandMap = Map.fromIterable(brandBox.values, key: (b) => b.name);
-    final logoLinks = <String>[];
-    for (var product in matchingProducts) {
-      final brandName = product.brand;
-      if (brandMap.containsKey(brandName)) {
-        logoLinks.add(brandMap[brandName].logoLink);
-      } else {
-        logoLinks.add('');
-      }
-    }
-    return [matchingProducts, logoLinks];
-  }
 
   List<Product> _matchingProducts = [];
   List<String> _brandLogoLinks = [];
