@@ -23,8 +23,8 @@ class _SearchPageState extends State<SearchPage> {
   List<Product> _matchingProducts = [];
   List<String> _brandLogoLinks = [];
 
-  void _searchProducts(String searchText) {
-    final result = retrievalquery(searchText);
+  void _searchProducts(String searchText) async {
+    final result = await retrievalquery(searchText);
     _matchingProducts = result[0];
     _brandLogoLinks = result[1];
   }
@@ -161,7 +161,7 @@ class _SearchPageState extends State<SearchPage> {
                               Text('Price: ${product.price}'),
                               Text('Tags: ${product.tags.join(', ')}'),
                               Text('Energy Kcal: ${product.energyKcal}'),
-                              Image.network(brandLogoLink),
+                              //Image.network(brandLogoLink),
                             ],
                           ),
                         );

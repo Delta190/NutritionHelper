@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print, unused_import, unnecessary_import
 
+import 'dart:async';
 import 'dart:io';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -16,16 +17,9 @@ Future<void> initializeHive() async {
   Hive.registerAdapter(UserDayIntakeAdapter());
   Hive.registerAdapter(UserStatsAdapter());
 
-  await Hive.openBox<Brand>('brand');
   await loadBrands();
-
-  await Hive.openBox<Product>('product');
   await loadProducts();
-
-  await Hive.openBox<UserDayIntake>('userDayIntake');
   await loadUserDayIntake();
-
-  await Hive.openBox<UserStats>('userStats');
   await loadUserStats();
 }
 
@@ -154,22 +148,27 @@ Future<void> loadBrands() async {
 }
 
 //search functionality below:
-List<dynamic> retrievalquery(String searchText) {
-  final productBox = Hive.box<Product>('product');
-  final brandBox = Hive.box<Brand>('brand');
-  final matchingProducts =
-      productBox.values.where((p) => p.name.contains(searchText)).toList();
-  final brandMap = Map.fromIterable(brandBox.values, key: (b) => b.name);
-  final logoLinks = <String>[];
-  for (var product in matchingProducts) {
-    final brandName = product.brand;
-    if (brandMap.containsKey(brandName)) {
-      logoLinks.add(brandMap[brandName].logoLink);
-    } else {
-      logoLinks.add('');
+FutureOr<List<dynamic>> retrievalquery(String searchText) async {
+  final productBox = await Hive.openBox<Product>('product');
+  final brandBox = await Hive.openBox<Brand>('brand');
+  try {
+    final matchingProducts =
+        productBox.values.where((p) => p.name.contains(searchText)).toList();
+    final brandMap = Map.fromIterable(brandBox.values, key: (b) => b.name);
+    final logoLinks = <String>[];
+    for (var product in matchingProducts) {
+      final brandName = product.brand;
+      if (brandMap.containsKey(brandName)) {
+        logoLinks.add(brandMap[brandName].logoLink);
+      } else {
+        logoLinks.add('');
+      }
     }
+    return [matchingProducts, logoLinks];
+  } finally {
+    await productBox.close();
+    await brandBox.close();
   }
-  return [matchingProducts, logoLinks];
 }
 
 List<dynamic> favouritesquery(String userId) {
