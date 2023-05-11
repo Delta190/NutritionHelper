@@ -9,12 +9,23 @@ import 'package:nutritionhelperuimodule/hivetables/userdayintaketable.dart';
 import 'package:nutritionhelperuimodule/hivetables/userstatstable.dart';
 import 'package:nutritionhelperuimodule/hivetables/producttable.dart';
 
-Future<void> initialiser() async {
-  Hive.initFlutter();
-  registerAdapters();
+Future<void> initializeHive() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(BrandAdapter());
+  Hive.registerAdapter(ProductAdapter());
+  Hive.registerAdapter(UserDayIntakeAdapter());
+  Hive.registerAdapter(UserStatsAdapter());
+
+  await Hive.openBox<Brand>('brand');
   await loadBrands();
+
+  await Hive.openBox<Product>('product');
   await loadProducts();
+
+  await Hive.openBox<UserDayIntake>('userDayIntake');
   await loadUserDayIntake();
+
+  await Hive.openBox<UserStats>('userStats');
   await loadUserStats();
 }
 
